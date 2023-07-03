@@ -12,7 +12,7 @@ function App() {
   let studentsInRoster = JSON.parse(localStorage.getItem('roster'));
   if(!studentsInRoster) {
     studentsInRoster = []
-  }
+  };
 
   //Registro de estudiantes
   const [roster, editRoster] = useState(studentsInRoster);
@@ -23,17 +23,23 @@ function App() {
     localStorage.setItem('roster', JSON.stringify(roster))
   });
 
+  //Nombre de estudiante
+  const [studentName, editName] = useState('');
+
+  //Link de busqueda por nombre
+  const searchLink = "https://api-blue-archive.vercel.app/api/characters?name=" + studentName
+
 
   //Funcion para API con nombre
-  const consultarAPI = async({name}) => {
+  const consultarAPI = async() => {
     try{
-      const api = await fetch("https://api-blue-archive.vercel.app/api/characters?name=" + {name})
+      const api = await fetch(searchLink)
       const resultado = await api.json();
       editRoster(resultado.data)
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   //Funcion para API random
   const randomAPI = async() => {
@@ -42,7 +48,7 @@ function App() {
       const resultado = await api.json();
       editRoster(resultado.data)
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -63,6 +69,7 @@ function App() {
       <Header/>
 
       <Searchbar 
+      editName={editName}
       consultarAPI={consultarAPI}
       randomAPI={randomAPI}
       randomAPIX6={randomAPIX6}

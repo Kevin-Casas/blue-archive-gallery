@@ -1,11 +1,15 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment } from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const Searchbar = ({consultarAPI, randomAPI, randomAPIX6}) => {
+const Searchbar = ({editName, consultarAPI, randomAPI, randomAPIX6}) => {
 
+
+  const handleChange = (e) => {
+    editName(e.target.value);
+  }
 
   return (  
     <Fragment>
@@ -14,13 +18,14 @@ const Searchbar = ({consultarAPI, randomAPI, randomAPIX6}) => {
         <Navbar 
         className="bg-white mt-5 rounded rounded-5 py-2 ps-4">
           <Form 
+          onSubmit={() => consultarAPI()}
           className="d-flex">
             <Form.Control
               type="text"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-              name='name'
+              onChange={handleChange}
             />
             <Button 
             variant="outline-primary"
