@@ -15,24 +15,21 @@ function App() {
   }
 
   //Registro de estudiantes
-  const [roster, editRoster] = useState(studentsInRoster)
+  const [roster, editRoster] = useState(studentsInRoster);
 
-  //Barra de busqueda
-  const [searchName, editName] = useState([])
-
-  
 
   //Hook 
   useEffect(() => {
     localStorage.setItem('roster', JSON.stringify(roster))
-  })
+  });
+
 
   //Funcion para API con nombre
-  const consultarAPI = async() => {
+  const consultarAPI = async({name}) => {
     try{
-      const api = await fetch("https://api-blue-archive.vercel.app/api/characters?name=" + {searchName})
+      const api = await fetch("https://api-blue-archive.vercel.app/api/characters?name=" + {name})
       const resultado = await api.json();
-      editRoster(resultado)
+      editRoster(resultado.data)
     } catch (error) {
       console.log(error);
     }
@@ -47,18 +44,18 @@ function App() {
     } catch (error) {
       console.log(error)
     }
-  }
+  };
 
-  //Funcion para API random X 10
-  const randomAPIX10 = async() => {
+  //Funcion para API random X 6
+  const randomAPIX6 = async() => {
     try{
-      const api = await fetch("https://api-blue-archive.vercel.app/api/character/random?count=10")
+      const api = await fetch("https://api-blue-archive.vercel.app/api/character/random?count=6")
       const resultado = await api.json();
       editRoster(resultado.data)
     } catch (error) {
       console.log(error)
     }
-  }
+  };
 
   return (
     <div className="App">
@@ -66,8 +63,9 @@ function App() {
       <Header/>
 
       <Searchbar 
+      consultarAPI={consultarAPI}
       randomAPI={randomAPI}
-      randomAPIX10={randomAPIX10}
+      randomAPIX6={randomAPIX6}
       />
 
       <Roster roster = {roster}/>

@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Student from './Student';
-import {v4 as uuid} from 'uuid';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Roster = ({roster}) => {
@@ -13,7 +12,7 @@ const Roster = ({roster}) => {
         {roster.map(student => (
           <Col className='my-5'>
           <Student
-          key={uuid()}
+          key={student._id}
           student ={student}
           />
           </Col>

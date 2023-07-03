@@ -46,7 +46,7 @@ const Footer = () => {
         </Col>
 
         <Col className='text-decoration-underline'>
-          <h6>Todos los derechos son propiedad de NEXON</h6>
+          <h6>Todos los derechos son propiedad de sus respectivos dueños</h6>
         </Col>
 
         <Col>
