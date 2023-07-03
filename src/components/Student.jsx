@@ -3,6 +3,11 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 const Student = ({student}) => {
+
+  //Links modificados
+  const official_art = "https://safebooru.org/index.php?page=post&s=list&tags=official_art+" + student.name + "_%28blue_archive%29"
+  const all_art = "https://safebooru.org/index.php?page=post&s=list&tags=" + student.name + "_%28blue_archive%29"
+  
   return (  
     <Fragment>
 
@@ -16,11 +21,11 @@ const Student = ({student}) => {
       </ListGroup>
       <Card.Body>
         <Card.Link 
-        href="https://safebooru.org/index.php?page=post&s=list&tags=official_art+neru_%28blue_archive%29+"
+        href= {official_art}
         target='_blank'
         >Arte oficial</Card.Link>
         <Card.Link 
-        href="https://safebooru.org/index.php?page=post&s=list&tags=neru_%28blue_archive%29"
+        href={all_art}
         target='_blank'
         >Todo el arte</Card.Link>
       </Card.Body>
