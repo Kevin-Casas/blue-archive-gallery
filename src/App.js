@@ -3,23 +3,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Searchbar from './components/Searchbar';
-import Student from './components/Student';
 import Roster from './components/Roster';
 import { useEffect, useState } from 'react';
 
 function App() {
-
-  //Registro de estudiantes
-  const [roster, editRoster] = useState([])
-
-  //Barra de busqueda
-  const [searchName, editName] = useState([])
 
   //Iniciamos local storage
   let studentsInRoster = JSON.parse(localStorage.getItem('roster'));
   if(!studentsInRoster) {
     studentsInRoster = []
   }
+
+  //Registro de estudiantes
+  const [roster, editRoster] = useState(studentsInRoster)
+
+  //Barra de busqueda
+  const [searchName, editName] = useState([])
+
+  
 
   //Hook 
   useEffect(() => {
@@ -42,18 +43,18 @@ function App() {
     try{
       const api = await fetch("https://api-blue-archive.vercel.app/api/character/random")
       const resultado = await api.json();
-      editRoster(resultado)
+      editRoster(resultado.data)
     } catch (error) {
       console.log(error)
     }
   }
 
-  //Funcion para API random X 20
-  const randomAPIX20 = async() => {
+  //Funcion para API random X 10
+  const randomAPIX10 = async() => {
     try{
-      const api = await fetch("https://api-blue-archive.vercel.app/api/character/random?count=20")
+      const api = await fetch("https://api-blue-archive.vercel.app/api/character/random?count=10")
       const resultado = await api.json();
-      editRoster(resultado)
+      editRoster(resultado.data)
     } catch (error) {
       console.log(error)
     }
@@ -66,7 +67,7 @@ function App() {
 
       <Searchbar 
       randomAPI={randomAPI}
-      randomAPIX20={randomAPIX20}
+      randomAPIX10={randomAPIX10}
       />
 
       <Roster roster = {roster}/>

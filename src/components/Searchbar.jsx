@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const Searchbar = ({randomAPI, randomAPIX20}) => {
+const Searchbar = ({randomAPI, randomAPIX10}) => {
 
 
   return (  
@@ -27,13 +27,13 @@ const Searchbar = ({randomAPI, randomAPIX20}) => {
             <Button 
             variant="outline-primary"
             className='mx-3'
-            onClick={randomAPI}
+            onClick={() => randomAPI()}
             >Random</Button>
             <Button 
             variant="outline-primary"
-            className='mx-3'
-            onClick={randomAPIX20}
-            >Random X20</Button>
+            className='mx-3 text-nowrap'
+            onClick={() => randomAPIX10()}
+            >Random X10</Button>
           </Form>
         </Navbar>
       </Container>
