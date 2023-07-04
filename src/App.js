@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  //Iniciamos local storage
+  //Iniciamos local storage para estudiantes
   let studentsInRoster = JSON.parse(localStorage.getItem('roster'));
   if(!studentsInRoster) {
     studentsInRoster = []
@@ -17,11 +17,11 @@ function App() {
   //Registro de estudiantes
   const [roster, editRoster] = useState(studentsInRoster);
 
-
   //Hook 
   useEffect(() => {
     localStorage.setItem('roster', JSON.stringify(roster))
   });
+
 
   //Nombre de estudiante
   const [studentName, editName] = useState('');

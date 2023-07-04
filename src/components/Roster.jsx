@@ -10,7 +10,7 @@ const Roster = ({roster}) => {
         className='row-cols-3 justify-content-center'>
 
         {roster.map(student => (
-          <Col className='my-5'>
+          <Col className='mt-4 mb-5'>
           <Student
           key={student._id}
           student ={student}

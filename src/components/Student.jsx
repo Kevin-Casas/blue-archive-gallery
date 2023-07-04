@@ -14,13 +14,14 @@ const Student = ({student}) => {
   return (  
     <Fragment>
 
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '17rem'}} className='ms-5'>
         <Card.Img variant="top" src={student.photoUrl} />
         <Card.Body>
           <Card.Title>{student.name}</Card.Title>
         </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>{student.school} <img src={student.imageSchool} alt="School Logo" /> </ListGroup.Item>
+        <ListGroup.Item>Birthday: {student.birthday}</ListGroup.Item>
       </ListGroup>
 
       <Card.Body>
@@ -30,14 +31,14 @@ const Student = ({student}) => {
         ><img 
         src={safebooruImg}
         alt="Safebooru" 
-        />Arte oficial</Card.Link>
+        />Official Art</Card.Link>
         
         <Card.Link 
         href={all_art}
         target='_blank'
         ><img src={safebooruImg} 
         alt="Safebooru" 
-        />Todo</Card.Link>
+        />All Art</Card.Link>
       </Card.Body>
       
      </Card>

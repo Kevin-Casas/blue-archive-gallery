@@ -4,7 +4,8 @@ import { Row, Col } from 'react-bootstrap';
 const Footer = () => {
   return (  
     <Fragment>
-      <Row className='bg-white fixed-bottom text-primary'>
+      
+      <Row className='bg-white fixed-bottom mx-0 text-primary'>
         <Col>
           <a 
           href="https://bluearchive.nexon.com/"
