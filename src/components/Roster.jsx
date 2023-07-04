@@ -7,7 +7,7 @@ const Roster = ({roster}) => {
     <Fragment>
       <Container>
         <Row
-        className='row-cols-3 justify-content-center'>
+        className='row-cols-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 justify-content-center'>
 
         {roster.map(student => (
           <Col className='mt-4 mb-5'>

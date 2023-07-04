@@ -18,12 +18,13 @@ const Searchbar = ({editName, consultarAPI, randomAPI, randomAPIX6}) => {
   useEffect(() => {
     localStorage.setItem('studentName', JSON.stringify(studentName))
   });
+  
 
   //Cambiar el nombre a buscar
   const handleChange = (e) => {
     editName(e.target.value);
     editStudentName(e.target.value);
-  }
+  };
 
   return (  
     <Fragment>
